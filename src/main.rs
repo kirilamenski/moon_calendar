@@ -18,7 +18,6 @@ fn main() {
         title,
         size,
     )
-        .resizable(false) // no effect
         .exit_on_esc(true)
         .build()
         .unwrap();
@@ -50,9 +49,6 @@ fn main() {
                 clear([0.0, 0.0, 0.0, 1.0], g);
                 moon_panel::draw(&c, g, &mut scene);
 
-                // We don't have access to gfx_device_gl::Device via piston_window.
-                // To solve this issue you need to add dependencies to Cargo.toml
-                // or draw text in this function (dirty-hack).
                 moon_panel::draw_text(
                     &scene.get_name(),
                     (355.0, 15.0),
